@@ -75,6 +75,22 @@ toY =
   Native.Dom.setScrollTop
 
 
+{-| Set the vertical scroll to whatever offset you want from bottom.
+
+Imagine you have a chat room and you want to control how it scrolls. Say the
+full chat is 400 pixels long, but it is in a box that limits the visible height
+to 100 pixels.
+
+  - If we say `toOffsetY "chat" 0` it will scroll to the very bottom.
+  - If we say `toOffsetY "chat" 300` it will be at the top.
+
+If we provide values outside that range, they just get clamped, so
+`toOffsetY "chat" 900` is also scrolled to the top.
+-}
+toOffsetY : Id -> Float -> Task Error ()
+toOffsetY =
+  Native.Dom.setScrollBottom
+
 
 -- HORIZONTAL
 
